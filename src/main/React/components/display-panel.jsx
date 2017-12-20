@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import $ from 'jquery';
+import swal from 'sweetalert2'
 import * as actions from '../actions';
 import { Alert, AlertContainer } from "react-bs-notifier";
 
@@ -87,8 +87,24 @@ class DisplayPanel extends Component {
                 message: '',
                 selected: {}
             });
-            // alert message + change
-            alert('Thank you for you busness. Change = ' + change);
+
+            swal({
+                title: 'Transaction Complete!',
+                text: "Your change is being dispatched.",
+                type: 'success',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'New transaction!'
+            }).then((result) => {
+                if (result.value) {
+                    swal(
+                        'Cleared!',
+                        'Change: R ' + change,
+                        'success'
+                    )
+                }
+            });
 
             // invoke api to deduct a product item from the total quantity
             //this.props.deductProduct(this.props.selectedBeverage);

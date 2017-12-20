@@ -3,7 +3,7 @@ import
 	FETCH_BEVERAGES,
 	EXPORT_BEVERAGE,
 	UPDATE_DISPLAY,
-	ACCEP_PAYMENT
+    ACCEPT_PAYMENT
 } from '../actions/types';
 
 const initialState = {
@@ -11,7 +11,7 @@ const initialState = {
 	selected: {},
 	message: 'Waiting for selection. Change is possible.',
 	userAmount: 0
-}
+};
 
 const beverages = (state = initialState, action) => {
 
@@ -31,7 +31,7 @@ const beverages = (state = initialState, action) => {
 				...state,
 				data: [ ...action.payload.data ],
 				selected: {}
-			}
+			};
 			return fetchState;
 
 		case 'EXPORT_BEVERAGE':
@@ -44,7 +44,7 @@ const beverages = (state = initialState, action) => {
 				...state,
 				//data: [ ...action.payload ],
 				selected: action.selectedBeverage
-			}
+			};
 			return exportState;
 
 		case 'UPDATE_DISPLAY':
@@ -56,7 +56,7 @@ const beverages = (state = initialState, action) => {
 			let displayState = {
 				...state,
 				message: action.message
-			}
+			};
 			return displayState;
 
 		case 'ACCEPT_PAYMENT':
@@ -68,7 +68,7 @@ const beverages = (state = initialState, action) => {
 			let userAmountState = {
 				...state,
 				userAmount: state.userAmount += action.userAmount
-			}
+			};
 			return userAmountState;
 
 		case 'RESET':
@@ -82,7 +82,7 @@ const beverages = (state = initialState, action) => {
 				userAmount: action.userAmount,
 				selected: action.selected,
 				message: initialState.message
-			}
+			};
 			return resetState;
 
 		case 'DEDUCT_PRODUCT':
@@ -98,13 +98,13 @@ const beverages = (state = initialState, action) => {
 			let deductState = {
 				...state,
 				selected: action.payload.data
-			}
+			};
 			return deductState;
 
 		default:
 			return state;
 	}
 
-}
+};
 
 export default beverages;

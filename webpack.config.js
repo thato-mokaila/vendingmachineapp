@@ -19,6 +19,9 @@ var common = {
         },
 
         module: {
+            preLoaders: [
+                { test: /\.json$/, loader: 'json'},
+            ],
             loaders: [{
                 test: /\.js/,
                 exclude: /node_modules/,

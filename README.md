@@ -25,3 +25,10 @@ $ npm start
 ```sh
 $ npm test
 ```
+
+#### Resources:
+
+```sh
+$ npm install --save-dev babel-plugin-transform-es2015-destructuring
+$ npm install --save-dev babel-plugin-transform-object-rest-spread
+```
